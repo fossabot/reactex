@@ -1,0 +1,68 @@
+{
+  "name": "@m8rex/reactex",
+  "version": "0.0.1",
+  "description": "React (La)TeX code from React",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "format": "prettier-standard --format",
+    "lint": "standardx **/*.ts",
+    "test": "jest --coverage"
+  },
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m8rex/reactex.git"
+  },
+  "keywords": [
+    "react",
+    "latex",
+    "tex"
+  ],
+  "author": "Jesse Hoobergs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m8rex/reactex/issues"
+  },
+  "homepage": "https://github.com/m8rex/reactex#readme",
+  "devDependencies": {
+    "@types/jest": "^24.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "jest": "^24.9.0",
+    "prettier-standard": "^16.1.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "standard": "^14.3.1",
+    "standardx": "^5.0.0",
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.7.5"
+  },
+  "eslintConfig": {
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
+    }
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ],
+    "ignore": [
+      "node_modules/",
+      "build/"
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
+}
