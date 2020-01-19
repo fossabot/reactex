@@ -31,6 +31,7 @@
   "homepage": "https://github.com/m8rex/reactex#readme",
   "devDependencies": {
     "@types/jest": "^24.9.0",
+    "@types/react": "^16.9.17",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "jest": "^24.9.0",
@@ -63,6 +64,15 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "build/"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^16"
+  },
+  "dependencies": {
+    "react-reconciler": "^0.24.0"
   }
 }
