@@ -1,0 +1,5 @@
+export const VIEW = 'VIEW'
+export const TEXT = 'TEXT'
+export const TEXT_INSTANCE = 'TEXT_INSTANCE'
+export const DOCUMENT = 'DOCUMENT'
+export const PAGE = 'PAGE'

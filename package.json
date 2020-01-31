@@ -30,20 +30,25 @@
   },
   "homepage": "https://github.com/m8rex/reactex#readme",
   "devDependencies": {
+    "@angular/compiler": "^6.1.10",
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-typescript": "^3.0.0",
     "@types/jest": "^24.9.0",
+    "@types/ramda": "^0.26.40",
     "@types/react": "^16.9.17",
+    "@types/react-reconciler": "^0.18.0",
+    "@types/scheduler": "^0.16.1",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "jest": "^24.9.0",
     "prettier-standard": "^16.1.0",
     "rollup": "^1.29.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-typescript2": "^0.25.3",
     "standard": "^14.3.1",
     "standardx": "^5.0.0",
     "ts-jest": "^24.3.0",
+    "tslib": "^1.10.0",
     "typescript": "^3.7.5"
   },
   "eslintConfig": {
@@ -73,6 +78,9 @@
     "react": "^16"
   },
   "dependencies": {
-    "react-reconciler": "^0.24.0"
+    "ramda": "^0.26.1",
+    "react": "^16.12.0",
+    "react-reconciler": "^0.24.0",
+    "scheduler": "^0.18.0"
   }
 }
