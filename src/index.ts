@@ -43,6 +43,7 @@ const latex = ({ initialValue, onChange }: { initialValue: React.ReactNode, onCh
 
 const renderToString = function(element: React.ReactNode) {
   const instance = latex({ initialValue: element });
+  console.log(instance.container)
   return instance.toString();
 };
 

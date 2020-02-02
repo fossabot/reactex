@@ -1,3 +1,5 @@
+import { Props } from "../renderer";
+
 // See https://github.com/diegomura/react-pdf/blob/v2/src/utils/propsEqual.js
 /**
  * Checks if two sets of props are equal (recursively)
@@ -7,7 +9,7 @@
  * @returns {Boolean} props equals?
  *
  */
-const propsEqual = (a: object, b: object) : boolean => {
+const propsEqual = (a: Props, b: Props) : boolean => {
   const oldPropsKeys = Object.keys(a);
   const newPropsKeys = Object.keys(b);
 

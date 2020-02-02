@@ -68,7 +68,7 @@ export interface TexAttributes {
 //interface TexProps<T> extends AllTexAttributes, React.ClassAttributes<T> {}
 
 export type DetailedTexProps<E extends TexAttributes> = E
-type Props = DetailedTexProps<any>
+export type Props = DetailedTexProps<any>
 
 const emptyObject = {};
 
@@ -86,7 +86,7 @@ const createRenderer = ({ onChange = () => {} }) => {
     },
 
     createInstance(type: Type, newProps: Props, _rootContainerInstance: Container, _hostContext: HostContext, _internalInstanceHandle: OpaqueHandle): Instance {
-      const props = {}
+      const props : Props = {}
       let textContent : string | number | undefined = undefined      
       Object.keys(newProps).forEach(propName => {
         const propValue = newProps[propName];
@@ -208,7 +208,7 @@ const createRenderer = ({ onChange = () => {} }) => {
           }
         } else {
           const propValue = newProps[propName]
-          instance[propName] = propValue
+          instance.props[propName] = propValue
         }
       });
     },

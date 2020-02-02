@@ -5,6 +5,7 @@
   "main": "build/index.js",
   "module": "build/index.es.js",
   "jsnext:main": "build/index.es.js",
+  "types": "src/global.d.ts",
   "scripts": {
     "build": "rollup -c",
     "format": "prettier-standard --format",
@@ -12,7 +13,8 @@
     "test": "jest --coverage"
   },
   "files": [
-    "build"
+    "build",
+    "src/global.d.ts"
   ],
   "repository": {
     "type": "git",
