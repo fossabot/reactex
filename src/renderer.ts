@@ -13,18 +13,11 @@ import { TEXT_INSTANCE } from './constants';
 
 type Type = string
 
-/*interface Props {
-  children: string | number | Instance | TextInstance
-  style?: Style // TODO
-}*/
-
 export interface Container {
   type: Type
   document: Instance | TextInstance | null
   children: (Instance | TextInstance)[]
 }
-
-
 
 interface HydratableInstance {
 
@@ -52,9 +45,9 @@ interface NoTimeout {
 
 }
 
-export interface Instance {
+export interface Instance<T = any> {
   type: Type
-  props: Props // TODO
+  props: DetailedTexProps<T> // TODO
   children: (Instance | TextInstance)[] // TODO
   textContent?: string | number
 }
@@ -65,7 +58,7 @@ export interface TextInstance {
 }
 
 export interface TexAttributes {
-  children?: string | number | Instance | TextInstance
+  children?: React.ReactNode
 }
 
 /*interface AllTexAttributes extends TexAttributes {
@@ -74,8 +67,8 @@ export interface TexAttributes {
 
 //interface TexProps<T> extends AllTexAttributes, React.ClassAttributes<T> {}
 
-export type DetailedTexProps<E extends TexAttributes, T> = React.ClassAttributes<T> & E
-type Props = DetailedTexProps<any, any>
+export type DetailedTexProps<E extends TexAttributes> = E
+type Props = DetailedTexProps<any>
 
 const emptyObject = {};
 
@@ -118,7 +111,7 @@ const createRenderer = ({ onChange = () => {} }) => {
       _rootContainerInstance: Container,
       _hostContext: HostContext,
       _internalInstanceHandle: OpaqueHandle): TextInstance {
-        console.log(text)
+        //console.log(text)
       return { type: TEXT_INSTANCE, text };
     },
 
@@ -159,26 +152,26 @@ const createRenderer = ({ onChange = () => {} }) => {
       return emptyObject;
     },
 
-    shouldSetTextContent(type: Type, props: Props): boolean {
-      console.log(`Should set text content`);
-      console.log(type)
-      console.log(props)
+    shouldSetTextContent(_type: Type, props: Props): boolean {
+      //console.log(`Should set text content`);
+      //console.log(type)
+      //console.log(props)
       return typeof props.children === 'string' || typeof props.children === 'number';
     },
 
     now: Date.now,
 
     appendChild(parentInstance: Instance, child: Instance | TextInstance): void {
-      console.log(`Appending child`)
-      console.log(child)
+      //console.log(`Appending child`)
+      //console.log(child)
       parentInstance.children.push(child);
     },
 
     appendChildToContainer(container: Container, child: Instance | TextInstance): void {
-      console.log(`Appending child`)
-      console.log(child)
-      console.log(`To root container`)
-      console.log(container)
+      //console.log(`Appending child`)
+      //console.log(child)
+      //console.log(`To root container`)
+      //console.log(container)
       if (container.type === 'ROOT') {
         container.document = child;
       } else {

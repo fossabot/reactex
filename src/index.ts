@@ -1,19 +1,8 @@
 import renderLaTeX from './render'
-import {
-  VIEW,
-  TEXT,
-  PAGE,
-  DOCUMENT,  
-} from './constants';
 import createRenderer from './renderer';
 import LatexDocument from './latex/LatexDocument'
 import React from 'react';
 import { Container } from './renderer';
-
-const View = VIEW;
-const Text = TEXT;
-const Page = PAGE;
-const Document = DOCUMENT;
 
 const latex = ({ initialValue, onChange }: { initialValue: React.ReactNode, onChange?: (() => void) }) => {
   const container: Container = { type: 'ROOT', document: null, children: [] };
@@ -22,12 +11,12 @@ const latex = ({ initialValue, onChange }: { initialValue: React.ReactNode, onCh
 
   if (initialValue) updateContainer(initialValue);
 
-  console.log(container)
+  //console.log(container)
 
   const render = () => {
     const ld = new LatexDocument()
 
-    return renderLaTeX(ld, container.document);
+    return renderLaTeX(ld, container.document!);
   };
 
   function updateContainer(doc: React.ReactNode) {
@@ -58,9 +47,5 @@ const renderToString = function(element: React.ReactNode) {
 };
 
 export {
-  View,
-  Text,
-  Page,
-  Document,
   renderToString,
 };
