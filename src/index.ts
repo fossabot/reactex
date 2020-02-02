@@ -5,16 +5,15 @@ import {
   PAGE,
   DOCUMENT,  
 } from './constants';
-import createRenderer, { Container } from './renderer';
+import createRenderer from './renderer';
 import LatexDocument from './latex/LatexDocument'
 import React from 'react';
+import { Container } from './renderer';
 
 const View = VIEW;
 const Text = TEXT;
 const Page = PAGE;
 const Document = DOCUMENT;
-let Cocument = DOCUMENT as unknown as (typeof React.Component);
-let Cext = Text as unknown as (typeof React.Component);
 
 const latex = ({ initialValue, onChange }: { initialValue: React.ReactNode, onChange?: (() => void) }) => {
   const container: Container = { type: 'ROOT', document: null, children: [] };
@@ -63,7 +62,5 @@ export {
   Text,
   Page,
   Document,
-  Cocument,
-  Cext,
   renderToString,
 };

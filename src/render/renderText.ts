@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { TextInstance, Instance } from '../renderer';
+import { Instance, TextInstance } from '../renderer'
 import isTextInstance from '../node/isTextInstance';
 import LatexDocument from '../latex/LatexDocument';
 
@@ -10,7 +10,7 @@ const renderText = (ld: LatexDocument, node: Instance) => {
     if (isTextInstance(child)) {
       console.log(child)
       const textInstance = child as TextInstance
-      ld.addContentLine(textInstance.text)
+      ld.addContentLine(textInstance.text.toString())
     } else {
       if (child) {
         renderText(ld, child as Instance)

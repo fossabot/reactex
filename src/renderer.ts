@@ -6,17 +6,17 @@ import {
 } from 'scheduler';
 
 import propsEqual from './utils/propsEqual';
+import { TEXT_INSTANCE } from './constants';
 
-const emptyObject = {};
 
-type Style = object // TODO
+//type Style = object // TODO
 
 type Type = string
 
-interface Props {
+/*interface Props {
   children: string | number | Instance | TextInstance
   style?: Style // TODO
-}
+}*/
 
 export interface Container {
   type: Type
@@ -24,17 +24,7 @@ export interface Container {
   children: (Instance | TextInstance)[]
 }
 
-export interface Instance {
-  type: Type
-  props: object // TODO
-  children: (Instance | TextInstance)[] // TODO
-  textContent?: string | number
-}
 
-export interface TextInstance {
-  type: 'TEXT_INSTANCE'
-  text: string | number
-}
 
 interface HydratableInstance {
 
@@ -61,6 +51,34 @@ type TimeoutHandle = typeof setTimeout | undefined
 interface NoTimeout {
 
 }
+
+export interface Instance {
+  type: Type
+  props: Props // TODO
+  children: (Instance | TextInstance)[] // TODO
+  textContent?: string | number
+}
+
+export interface TextInstance {
+  type: typeof TEXT_INSTANCE
+  text: string | number
+}
+
+export interface TexAttributes {
+  children?: string | number | Instance | TextInstance
+}
+
+/*interface AllTexAttributes extends TexAttributes {
+
+}*/
+
+//interface TexProps<T> extends AllTexAttributes, React.ClassAttributes<T> {}
+
+export type DetailedTexProps<E extends TexAttributes, T> = React.ClassAttributes<T> & E
+type Props = DetailedTexProps<any, any>
+
+const emptyObject = {};
+
 
 const createRenderer = ({ onChange = () => {} }) => {
   return ReactFiberReconciler<Type, Props, Container, Instance, TextInstance, HydratableInstance, PublicInstance, HostContext, UpdatePayload, ChildSet, TimeoutHandle, NoTimeout>({
@@ -101,7 +119,7 @@ const createRenderer = ({ onChange = () => {} }) => {
       _hostContext: HostContext,
       _internalInstanceHandle: OpaqueHandle): TextInstance {
         console.log(text)
-      return { type: 'TEXT_INSTANCE', text };
+      return { type: TEXT_INSTANCE, text };
     },
 
     finalizeInitialChildren(_parentInstance: Instance, _type: Type, _props: Props, _rootContainerInstance: Container, _hostContext: HostContext) : boolean {

@@ -18,7 +18,8 @@
     "noUnusedParameters": true,
     "esModuleInterop": true,
     "jsx": "react",
+    "typeRoots": [ "./types", "./node_modules/@types"]
   },
   "include": ["src"],
-  "exclude": ["node_modules", "build"]
+  "exclude": ["node_modules", "build", "typings"]
 }

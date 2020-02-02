@@ -4,8 +4,8 @@ import isText from '../node/isText';
 import isPage from '../node/isPage';
 import renderText from './renderText';
 import renderPage from './renderPage';
-import { Instance, TextInstance } from '../renderer';
 import LatexDocument from '../latex/LatexDocument';
+import { Instance, TextInstance } from '../renderer'
 
 const shouldRenderChildren = (v: Instance | TextInstance) => !isText(v)
 

@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { TextInstance, Instance } from '../renderer';
+import { Instance, TextInstance } from '../renderer';
 import LatexDocument from '../latex/LatexDocument';
 
 const renderPage = (_ld: LatexDocument, node: TextInstance | Instance) => {
