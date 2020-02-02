@@ -1,5 +1,6 @@
 import React from "react"
 import { renderToString } from '..'
+import parser from '../jsx/parser'
 
 test('SimpleRender', () => {
   console.log(renderToString(<reactex_document></reactex_document>))
@@ -117,3 +118,10 @@ test('New Environment + renew Environment', () => {
     </reactex_document>))
 })
 
+test('Parser', () => {
+  console.log(
+    JSON.stringify(
+    parser(`<reactex_document>The square of five is written as <reactex_math>5^2</reactex_math></reactex_document>`),
+    null, 2
+    ))
+})
