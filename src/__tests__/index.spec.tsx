@@ -1,7 +1,5 @@
 import React from "react"
 import { renderToString } from '..'
-import parser from '../jsx/parser'
-import jsx from '../jsx'
 
 test('SimpleRender', () => {
   console.log(renderToString(<reactex_document></reactex_document>))
@@ -117,23 +115,4 @@ test('New Environment + renew Environment', () => {
         This should be centered with a text before and after
       </reactex_environment>
     </reactex_document>))
-})
-
-test('Parser', () => {
-  console.log(
-    JSON.stringify(
-    parser(`<reactex_document>The square of five is written as <reactex_math>5^2</reactex_math></reactex_document>`, []),
-    null, 2
-    ))
-})
-
-const toJSON = (o: any) => JSON.stringify(o, null, 2)
-
-test('Simple JSX test', () => {
-  expect(toJSON(jsx `<reactex_document></reactex_document>`)).toEqual(toJSON(<reactex_document></reactex_document>))
-})
-
-test('More complex JSX test', () => {
-  expect(toJSON(jsx `<reactex_document>The square of five is written as <reactex_math display key="tmp">5^2</reactex_math></reactex_document>`))
-  .toEqual(toJSON(<reactex_document>The square of five is written as <reactex_math display key="tmp">5^2</reactex_math></reactex_document>))
 })

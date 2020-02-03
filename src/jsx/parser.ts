@@ -26,7 +26,7 @@ export type JSXNode = ElementNode | PropsNode | ValueNode
 
 export const placeholder = `__jsxPlaceholder${Date.now()}` // Note how I used the Date.now() function to define a postfix for the placeholder. This we can be sure that the same value won't be given by the user as a string (possible, very unlikely).
 
-const parseElement = (str: string, values: any[]) : ElementNode | ValueNode[] => {
+const parseElement = (str: string, ...values: any[]) : ElementNode | ValueNode[] => {
   let match
   let length
 
@@ -106,7 +106,7 @@ const parseElement = (str: string, values: any[]) : ElementNode | ValueNode[] =>
   return node
 }
 
-const parseProps = (str: string, values: any[]) => {
+const parseProps = (str: string, ...values: any[]) => {
   const node: PropsNode = {
     type: 'props',
     length: 0,
@@ -134,7 +134,7 @@ const parseProps = (str: string, values: any[]) => {
   return node
 }
 
-const parseValues = (str: string, values: any[]) : ValueNode[] => {
+const parseValues = (str: string, ...values: any[]) : ValueNode[] => {
   const nodes : ValueNode[] = []
 
   str.split(placeholder).forEach((split, index, splits) => {

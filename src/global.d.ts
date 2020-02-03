@@ -8,7 +8,7 @@ import { RenewCommandProps } from './render/renderRenewCommand';
 import { NewEnvironmentProps } from './render/renderNewEnvironment';
 import { RenewEnvironmentProps } from './render/renderRenewEnvironment';
 import { EnvironmentProps } from './render/renderEnvironment';
-import jsx from './jsx';
+import { jsxtex, reactex } from './jsx';
 
 declare global {
   namespace JSX {
@@ -26,4 +26,4 @@ declare global {
 }
 
 declare const renderToString: (element: React.ReactNode) => string;
-export { renderToString, jsx };
+export { renderToString, jsxtex, reactex };

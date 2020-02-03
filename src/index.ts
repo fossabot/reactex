@@ -3,7 +3,7 @@ import createRenderer from './renderer';
 import LatexDocument from './latex/LatexDocument'
 import React from 'react';
 import { Container } from './renderer';
-import jsx from './jsx';
+import {jsxtex, reactex} from './jsx';
 
 const latex = ({ initialValue, onChange }: { initialValue: React.ReactNode, onChange?: (() => void) }) => {
   const container: Container = { type: 'ROOT', document: null, children: [] };
@@ -44,11 +44,11 @@ const latex = ({ initialValue, onChange }: { initialValue: React.ReactNode, onCh
 
 const renderToString = function(element: React.ReactNode) {
   const instance = latex({ initialValue: element });
-  console.log(instance.container)
   return instance.toString();
 };
 
 export {
   renderToString,
-  jsx
+  jsxtex,
+  reactex
 };
