@@ -3,7 +3,8 @@ import createRenderer from './renderer';
 import LatexDocument from './latex/LatexDocument'
 import React from 'react';
 import { Container } from './renderer';
-import {jsxtex, reactex} from './jsx';
+import {jsxtex, reactex, FailedReactElementCreation } from './jsx';
+import { FailedParseResponse } from './jsx/parser';
 
 const latex = ({ initialValue, onChange }: { initialValue: React.ReactNode, onChange?: (() => void) }) => {
   const container: Container = { type: 'ROOT', document: null, children: [] };
@@ -50,5 +51,7 @@ const renderToLaTeXString = function(element: React.ReactNode) {
 export {
   renderToLaTeXString,
   jsxtex,
-  reactex
+  reactex,
+  FailedParseResponse,
+  FailedReactElementCreation
 };

@@ -8,7 +8,8 @@ import { RenewCommandProps } from './render/renderRenewCommand';
 import { NewEnvironmentProps } from './render/renderNewEnvironment';
 import { RenewEnvironmentProps } from './render/renderRenewEnvironment';
 import { EnvironmentProps } from './render/renderEnvironment';
-import { jsxtex, reactex } from './jsx';
+import { jsxtex, reactex, FailedReactElementCreation } from './jsx';
+import { FailedParseResponse } from './jsx/parser';
 
 declare global {
   namespace JSX {
@@ -26,4 +27,4 @@ declare global {
 }
 
 declare const renderToLaTeXString: (element: React.ReactNode) => string;
-export { renderToLaTeXString, jsxtex, reactex };
+export { renderToLaTeXString, jsxtex, reactex, FailedParseResponse, FailedReactElementCreation };

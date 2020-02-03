@@ -1,19 +1,30 @@
 import React from 'react'
-import parse, { Program, Node, ExpressionStatement, JSXElement, JSXAttribute, JSXIdentifier, Literal, JSXExpressionContainer, ArrayExpression, ObjectExpression, JSXText } from './parser'
+import parse, { Program, Node, ExpressionStatement, JSXElement, JSXAttribute, JSXIdentifier, Literal, JSXExpressionContainer, ArrayExpression, ObjectExpression, JSXText, FailedParseResponse } from './parser'
 
-const parseStringArray = (splits: string) => {
-  const root = parse(splits)
-  return createReactElement(root)
+export interface FailedReactElementCreation {
+  type: 'FailedReactElementCreation'
+  error: Error
 }
 
-export const reactex = (s: string) => {
-  return parseStringArray(s)
+export const reactex = (s: string) : FailedParseResponse | FailedReactElementCreation | React.ReactNode => {
+  const parseResult = parse(s)
+  if(parseResult.type==='failed')
+    return parseResult
+  
+  try{
+    return createReactElement(parseResult.program)
+  } catch(error){
+    return { 
+      type: 'FailedReactElementCreation',
+      error
+    }
+  }
 }
 
 // TODO
 export const jsxtex = (splits: TemplateStringsArray) => {
   const l = splits.raw.map(s => s).join('')
-  return parseStringArray(l)
+  return reactex(l)
 }
 
 const parsePropValue = (value: JSXAttribute['value'] | JSXExpressionContainer['expression']) : any => {
@@ -35,14 +46,14 @@ const parsePropValue = (value: JSXAttribute['value'] | JSXExpressionContainer['e
         return objectExpression.properties.reduce((acc, property) => {
           acc[property.key.name] = parsePropValue(property.value)
           return acc
-        }, {})
+        }, {} as {[s:string]: any}) // TODO: any ?
       default:
         throw new Error(`Unknown prop value type ${(value as Node).type}`)
     }
 }
 
 const parseProps = (attributes: JSXAttribute[]) => {
-  const props: object = {}
+  const props: {[s:string]: any} = {}
   attributes.forEach(a => {
     const name = parseName(a.name)
     props[name] = parsePropValue(a.value)
@@ -61,7 +72,7 @@ const parseName = (name: JSXIdentifier) => {
 }
 
 // TODO: any
-const createReactElement = (node: Node) : any => {
+const createReactElement = (node: Node) : React.ReactNode => {
   //console.log('NODE')
   //console.log(JSON.stringify(node, null, 2))
   

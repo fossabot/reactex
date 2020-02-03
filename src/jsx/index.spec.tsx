@@ -15,6 +15,11 @@ test('Simple JSX test', () => {
 })
 
 
+test('Simple JSX test error', () => {
+  console.log(toJSON(reactex('<reactex_document><</reactex_document>')))
+})
+
+
 test('More complex JSX test', () => {
   expect(toJSON(reactex(`<reactex_document>The square of five is written as <reactex_math display key="tmp">5^2</reactex_math></reactex_document>`)))
   .toEqual(toJSON(<reactex_document>The square of five is written as <reactex_math display key="tmp">5^2</reactex_math></reactex_document>))

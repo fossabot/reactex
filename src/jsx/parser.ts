@@ -94,6 +94,24 @@ export interface Program extends Node {
   sourceType: 'script'
 }
 
-const parse = (s: string) : Program => acorn.Parser.extend(require("acorn-jsx")()).parse(s)
+export interface FailedParseResponse {
+  type: 'failed' 
+  error: Error
+}
+
+export interface SuccesParseResponse { 
+  type: 'succes'
+  program: Program
+}
+
+const parse = (s: string) : FailedParseResponse | SuccesParseResponse => {
+  try{
+    const program = acorn.Parser.extend(require("acorn-jsx")()).parse(s)
+    return { type: 'succes', program }
+  }
+  catch(error){
+    return { type: 'failed', error }
+  }
+}
 
 export default parse
