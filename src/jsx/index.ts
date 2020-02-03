@@ -1,5 +1,5 @@
-import React from 'react'
-import parseElement, {placeholder, ElementNode, ValueNode} from './parser'
+//import React from 'react'
+import parse, { ProgramNode } from './parser'
 
 export const toStringArray = (s: string): string[] => {
   const re = /\${(\w+)}/
@@ -20,29 +20,33 @@ export const toStringArray = (s: string): string[] => {
   return stringList
 }
 
-const parseStringArray = (splits: string[], ...values: any[]) => {
-  const root = parseElement(splits.join(placeholder), values) as ElementNode
+const parseStringArray = (splits: string) => {
+  const root = parse(splits)
   return createReactElement(root)
 }
 
-export const reactex = (s: string, ...values: any[]) => {
-  return parseStringArray(toStringArray(s), values)
+export const reactex = (s: string) => {
+  return parseStringArray(s)
 }
 
-export const jsxtex = (splits: TemplateStringsArray, ...values: any[]) => {
-  const l = splits.raw.map(s => s)
-  return parseStringArray(l, ...values)
+// TODO
+export const jsxtex = (splits: TemplateStringsArray) => {
+  const l = splits.raw.map(s => s).join('')
+  return parseStringArray(l)
 }
 
 // TODO: any
-const createReactElement = (node: ElementNode | ValueNode) : any => {
-  console.log(node)
-  if(node.type === 'value'){
+const createReactElement = (node: ProgramNode) : any => {
+  console.log('NODE')
+  console.log(JSON.stringify(node, null, 2))
+  
+  /*if(node.type === 'value'){
     return (node as ValueNode).value
   }
 
   const element = node as ElementNode
-
+  console.log('ELEMENT')
+  console.log(JSON.stringify(element, null, 2))
   let children 
   if(element.children.length > 1)
     children = element.children.map(createReactElement)
@@ -53,5 +57,5 @@ const createReactElement = (node: ElementNode | ValueNode) : any => {
     else
       children = [createReactElement(child)]
   }
-  return React.createElement(element.tag!, element.props.props, children)
+  return React.createElement(element.tag!, element.props.props, children)*/
 }

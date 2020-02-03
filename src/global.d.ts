@@ -25,5 +25,5 @@ declare global {
   }
 }
 
-declare const renderToString: (element: React.ReactNode) => string;
-export { renderToString, jsxtex, reactex };
+declare const renderToLaTeXString: (element: React.ReactNode) => string;
+export { renderToLaTeXString, jsxtex, reactex };

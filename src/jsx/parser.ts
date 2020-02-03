@@ -1,3 +1,100 @@
+const acorn = require('acorn');
+
+interface Node {
+  type: string
+  start: number
+  end: number
+}
+
+export interface JSXName extends Node {
+}
+
+export interface JSXIdentifier extends JSXName {
+  type: 'JSXIdentifier' //| 'JSXNamespacedName' | 'JSXMemberExpression'
+  name: string
+}
+
+export interface Literal extends Node {
+  type: 'Literal'
+  value: string | number
+  raw: string
+}
+
+export interface Identifier extends Node {
+  type: 'Identifier'
+  name: string
+}
+
+export interface Property extends Node {
+  type: 'Property'
+  method: boolean
+  shorthand: boolean
+  computed: boolean
+  key: Identifier
+  value: Literal
+  kind: 'init'
+}
+
+export interface ObjectExpression extends Node {
+  type: 'ArrayExpression'
+  properties: Property[]
+}
+
+export interface ArrayExpression extends Node {
+  type: 'ArrayExpression'
+  elements: (Literal)[]
+}
+
+export interface JSXExpressionContainer extends Node {
+  type: 'JSXExpressionContainer'
+  expression: ArrayExpression | Literal
+}
+
+export interface JSXAttribute extends Node {
+  type: 'JSXAttribute'
+  name: JSXIdentifier
+  value: Literal | null | JSXExpressionContainer
+}
+
+export interface JSXOpeningElement extends Node  {
+  type: 'JSXOpeningElement'
+  attributes: never[]
+  name: JSXIdentifier
+  selfClosing: boolean
+}
+
+export interface JSXClosingElement extends Node  {
+  type: 'JSXClosingElement'
+  name: JSXIdentifier
+}
+
+export interface JSXText extends Node {
+  type: 'JSXText'
+  value: string
+  raw: string
+}
+
+export interface JSXElement extends Node  {
+  type: 'JSXElement'
+  openingElement: JSXOpeningElement
+  closingElement: null | JSXClosingElement
+  children: (JSXElement | JSXText)[]
+}
+
+export interface ExpressionStatement extends Node {
+  type: 'ExpressionStatement'
+  expression: JSXElement
+}
+
+export interface ProgramNode extends Node {
+  type: 'Program'
+  body: ExpressionStatement[]
+  sourceType: 'script'
+}
+
+const parse = (s: string) : ProgramNode => acorn.Parser.extend(require("acorn-jsx")()).parse(s)
+
+
 // See https://medium.com/the-guild/implementing-a-runtime-version-of-jsx-78e004bf432e
 interface NodeSharedField {
   type: string
@@ -38,7 +135,7 @@ const parseElement = (str: string, ...values: any[]) : ElementNode | ValueNode[]
     name: ''
   }
 
-  match = str.match(/^ *<(\w+)/) // Added ^ * here, different from example
+  match = str.match(/^[\n ]*<(\w+)/) // Added ^ * here, different from example
   if(!match){
     str = str.split('<')[0]
     return parseValues(str, values)
@@ -58,7 +155,7 @@ const parseElement = (str: string, ...values: any[]) : ElementNode | ValueNode[]
   str = str.slice(length)
   node.length += length
 
-  match = str.match(/^ *\/ *>/) // Check if opening tag is also closing tag
+  match = str.match(/^[\n ]*\/[\n ]*>/) // Check if opening tag is also closing tag
   if(match){
     node.length += match.index! + match[0].length
     return node
@@ -76,7 +173,14 @@ const parseElement = (str: string, ...values: any[]) : ElementNode | ValueNode[]
   const parseNextChildren = () => {
     const parsed = parseElement(str, values)
     let elems: (ElementNode | ValueNode)[] = []
+    console.log('concat')
+    console.log(JSON.stringify(elems.concat(parsed), null, 2))
     return elems.concat(parsed)
+    /*if((parsed as ElementNode).type === 'element'){
+      return elems.concat(parsed)
+    } else {
+      return elems.concat(...(parsed as ValueNode[]))
+    }*/   
   } 
 
   children = parseNextChildren()
@@ -114,12 +218,13 @@ const parseProps = (str: string, ...values: any[]) => {
   }
 
   const matchNextProp = () => 
-    str.match(/ *\w+="(?:.*[^\\]")?/) ||
+    str.match(/ *\w+="(?:[^"]|[^\\]")*"/) || // Changed this regex
     str.match(new RegExp(` *\\w+=${placeholder}`)) ||
     str.match(/ *\w+/)
 
   let match = matchNextProp()
   while(match){
+    console.log(match)
     const propStr = match[0]!
     let [key, ...value] = propStr.split('=')
     node.length += propStr.length
@@ -127,7 +232,7 @@ const parseProps = (str: string, ...values: any[]) => {
     let valueString = value.join('=')
     node.props[key] = (valueString === placeholder) ? values.shift() : (valueString ? valueString.slice(1, valueString.length - 1) : true) // Fix the slicing
     str = str.slice(0, match.index) + str.slice(match.index! + propStr.length)
-
+    console.log(node.props)
     match = matchNextProp()
   }
 
@@ -170,4 +275,4 @@ const parseValues = (str: string, ...values: any[]) : ValueNode[] => {
   return nodes
 }
 
-export default parseElement
+export default parse

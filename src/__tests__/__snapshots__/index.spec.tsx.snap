@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Command 1`] = `
+"\\\\begin{document}
+\\\\section{test}
+\\\\end{document}"
+`;
+
+exports[`Environment call 1`] = `
+"\\\\begin{document}
+\\\\begin{center}
+This should be centered
+\\\\end{center}
+\\\\end{document}"
+`;
+
+exports[`Nested environment call 1`] = `
+"\\\\begin{document}
+\\\\begin{center}
+This should be centered
+\\\\begin{tabular}{c c c}
+cell1 & cell2 & cell3 \\\\\\\\ cell4 & cell5 & cell6 \\\\\\\\ cell7 & cell8 & cell9 \\\\\\\\
+\\\\end{tabular}
+\\\\end{center}
+\\\\end{document}"
+`;
+
+exports[`New Environment + renew Environment 1`] = `
+"\\\\begin{document}
+\\\\newcommand{\\\\tmpArg}[0]{}
+\\\\newenvironment{centerOther}[2][endText]
+{\\\\renewcommand{\\\\tmpArg}{#1}\\\\begin{center}#2\\\\\\\\}
+{\\\\\\\\\\\\tmpArg\\\\end{center}}
+\\\\begin{centerOther}{before}
+This should be centered with a text before and default one after
+\\\\end{centerOther}
+\\\\renewenvironment{centerOther}[2][other endText]
+{\\\\renewcommand{\\\\tmpArg}{#1}\\\\begin{center}#2\\\\\\\\}
+{\\\\\\\\\\\\tmpArg\\\\end{center}}
+\\\\begin{centerOther}{before}
+This should be centered with a text before and after
+\\\\end{centerOther}
+\\\\end{document}"
+`;
+
+exports[`New Environment 1`] = `
+"\\\\begin{document}
+\\\\newenvironment{centerOther}[0]
+{\\\\begin{center}}
+{\\\\end{center}}
+\\\\begin{centerOther}
+This should be centered
+\\\\end{centerOther}
+\\\\end{document}"
+`;
+
+exports[`New Environment 2`] = `
+"\\\\begin{document}
+\\\\newcommand{\\\\tmpArg}[0]{}
+\\\\newenvironment{centerOther}[2][endText]
+{\\\\renewcommand{\\\\tmpArg}{#1}\\\\begin{center}#2\\\\\\\\}
+{\\\\\\\\\\\\tmpArg\\\\end{center}}
+\\\\begin{centerOther}{before}
+This should be centered with a text before and default one after
+\\\\end{centerOther}
+\\\\begin{centerOther}[other endText]{before}
+This should be centered with a text before and after
+\\\\end{centerOther}
+\\\\end{document}"
+`;
+
+exports[`NewCommand 1`] = `
+"\\\\begin{document}
+\\\\newcommand{\\\\example}[2][optional]{Example with arg #2 and optional value #1}
+\\\\end{document}"
+`;
+
+exports[`NewCommand and command call 1`] = `
+"\\\\begin{document}
+\\\\newcommand{\\\\example}[2][optional]{Example with arg #2 and optional value #1}
+\\\\example{test}
+\\\\end{document}"
+`;
+
+exports[`NewCommand and command call 2`] = `
+"\\\\begin{document}
+\\\\newcommand{\\\\example}[2][optional]{Example with arg #2 and optional value #1}
+\\\\example[this value]{test}
+\\\\end{document}"
+`;
+
+exports[`NewCommand, command call, renew command, command call 1`] = `
+"\\\\begin{document}
+\\\\newcommand{\\\\example}[2][optional]{Example with arg #2 and optional value #1}
+\\\\example[this value]{test}
+\\\\renewcommand{\\\\example}[2][OTHER optional]{Example with argument #2 and an optional value #1}
+\\\\example{test}
+\\\\end{document}"
+`;
+
+exports[`SimpleRender 1`] = `
+"\\\\begin{document}
+\\\\end{document}"
+`;
+
+exports[`SimpleRender2 1`] = `
+"\\\\begin{document}
+Test
+\\\\end{document}"
+`;
+
+exports[`SimpleRender3 1`] = `
+"\\\\begin{document}
+The square of five is written as $5^2$
+\\\\end{document}"
+`;
+
+exports[`SimpleRender4 1`] = `
+"\\\\begin{document}
+Display 
+$$5^2$$
+\\\\end{document}"
+`;

@@ -80,6 +80,8 @@
     "react": "^16"
   },
   "dependencies": {
+    "acorn": "^7.1.0",
+    "acorn-jsx": "^5.1.0",
     "ramda": "^0.26.1",
     "react": "^16.12.0",
     "react-reconciler": "^0.24.0",

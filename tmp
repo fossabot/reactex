@@ -1,0 +1,1764 @@
+yarn run v1.21.1
+$ jest --coverage
+PASS src/__tests__/index.spec.tsx
+FAIL src/jsx/__tests__/index.spec.tsx
+  ● Console
+
+    console.log src/jsx/parser.ts:2270
+      [
+        ' name="tmpArg"',
+        index: 0,
+        input: ' name="tmpArg" content="" /',
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'tmpArg' }
+    console.log src/jsx/parser.ts:2270
+      [ ' content=""', index: 0, input: ' content="" /', groups: undefined ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'tmpArg', content: '' }
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      [
+        {
+          "type": "element",
+          "props": {
+            "type": "props",
+            "length": 25,
+            "props": {
+              "name": "tmpArg",
+              "content": ""
+            }
+          },
+          "children": [],
+          "length": 53,
+          "name": "reactex_new_command",
+          "tag": "reactex_new_command"
+        }
+      ]
+    console.log src/jsx/parser.ts:2270
+      [
+        ' name="centerOther"',
+        index: 0,
+        input: ` name="centerOther" optionalArgs={['endText']} nbMandatoryArgs={1} start="\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\" end="\\\\\\tmpArg\\end{center}"/`,
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther' }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' start="\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\"',
+        index: 47,
+        input: ` optionalArgs={['endText']} nbMandatoryArgs={1} start="\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\" end="\\\\\\tmpArg\\end{center}"/`,
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\'
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' end="\\\\\\tmpArg\\end{center}"',
+        index: 47,
+        input: ` optionalArgs={['endText']} nbMandatoryArgs={1} end="\\\\\\tmpArg\\end{center}"/`,
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}'
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' optionalArgs',
+        index: 0,
+        input: " optionalArgs={['endText']} nbMandatoryArgs={1}/",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}',
+        optionalArgs: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        'endText',
+        index: 4,
+        input: "={['endText']} nbMandatoryArgs={1}/",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}',
+        optionalArgs: true,
+        endText: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' nbMandatoryArgs',
+        index: 7,
+        input: "={['']} nbMandatoryArgs={1}/",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}',
+        optionalArgs: true,
+        endText: true,
+        nbMandatoryArgs: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [ '1', index: 9, input: "={['']}={1}/", groups: undefined ]
+    console.log src/jsx/parser.ts:2314
+      {
+        '1': true,
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}',
+        optionalArgs: true,
+        endText: true,
+        nbMandatoryArgs: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' name="centerOther"',
+        index: 0,
+        input: ` name="centerOther" args={[{optional: false, value: 'before'}]}`,
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther' }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' args',
+        index: 0,
+        input: " args={[{optional: false, value: 'before'}]}",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther', args: true }
+    console.log src/jsx/parser.ts:2270
+      [
+        'optional',
+        index: 4,
+        input: "={[{optional: false, value: 'before'}]}",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther', args: true, optional: true }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' false',
+        index: 5,
+        input: "={[{: false, value: 'before'}]}",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther', args: true, optional: true, false: true }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' value',
+        index: 6,
+        input: "={[{:, value: 'before'}]}",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        args: true,
+        optional: true,
+        false: true,
+        value: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [ 'before', index: 9, input: "={[{:,: 'before'}]}", groups: undefined ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        args: true,
+        optional: true,
+        false: true,
+        value: true,
+        before: true
+      }
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      [
+        {
+          "type": "value",
+          "length": 76,
+          "value": "\n      This should be centered with a text before and default one after\n    "
+        }
+      ]
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      []
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      [
+        {
+          "type": "element",
+          "props": {
+            "type": "props",
+            "length": 50,
+            "props": {
+              "name": "centerOther",
+              "args": true,
+              "optional": true,
+              "false": true,
+              "value": true,
+              "before": true
+            }
+          },
+          "children": [
+            {
+              "type": "value",
+              "length": 76,
+              "value": "\n      This should be centered with a text before and default one after\n    "
+            }
+          ],
+          "length": 187,
+          "name": "reactex_environment",
+          "tag": "reactex_environment"
+        }
+      ]
+    console.log src/jsx/parser.ts:2270
+      [
+        ' name="centerOther"',
+        index: 0,
+        input: ` name="centerOther" optionalArgs={['other endText']} nbMandatoryArgs={1} start="\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\" end="\\\\\\tmpArg\\end{center}"/`,
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther' }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' start="\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\"',
+        index: 53,
+        input: ` optionalArgs={['other endText']} nbMandatoryArgs={1} start="\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\" end="\\\\\\tmpArg\\end{center}"/`,
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\'
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' end="\\\\\\tmpArg\\end{center}"',
+        index: 53,
+        input: ` optionalArgs={['other endText']} nbMandatoryArgs={1} end="\\\\\\tmpArg\\end{center}"/`,
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}'
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' optionalArgs',
+        index: 0,
+        input: " optionalArgs={['other endText']} nbMandatoryArgs={1}/",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}',
+        optionalArgs: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        'other',
+        index: 4,
+        input: "={['other endText']} nbMandatoryArgs={1}/",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}',
+        optionalArgs: true,
+        other: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' endText',
+        index: 4,
+        input: "={[' endText']} nbMandatoryArgs={1}/",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}',
+        optionalArgs: true,
+        other: true,
+        endText: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' nbMandatoryArgs',
+        index: 7,
+        input: "={['']} nbMandatoryArgs={1}/",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}',
+        optionalArgs: true,
+        other: true,
+        endText: true,
+        nbMandatoryArgs: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [ '1', index: 9, input: "={['']}={1}/", groups: undefined ]
+    console.log src/jsx/parser.ts:2314
+      {
+        '1': true,
+        name: 'centerOther',
+        start: '\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\',
+        end: '\\\\\\tmpArg\\end{center}',
+        optionalArgs: true,
+        other: true,
+        endText: true,
+        nbMandatoryArgs: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' name="centerOther"',
+        index: 0,
+        input: ` name="centerOther" args={[{optional: false, value: 'before'}]}`,
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther' }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' args',
+        index: 0,
+        input: " args={[{optional: false, value: 'before'}]}",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther', args: true }
+    console.log src/jsx/parser.ts:2270
+      [
+        'optional',
+        index: 4,
+        input: "={[{optional: false, value: 'before'}]}",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther', args: true, optional: true }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' false',
+        index: 5,
+        input: "={[{: false, value: 'before'}]}",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      { name: 'centerOther', args: true, optional: true, false: true }
+    console.log src/jsx/parser.ts:2270
+      [
+        ' value',
+        index: 6,
+        input: "={[{:, value: 'before'}]}",
+        groups: undefined
+      ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        args: true,
+        optional: true,
+        false: true,
+        value: true
+      }
+    console.log src/jsx/parser.ts:2270
+      [ 'before', index: 9, input: "={[{:,: 'before'}]}", groups: undefined ]
+    console.log src/jsx/parser.ts:2314
+      {
+        name: 'centerOther',
+        args: true,
+        optional: true,
+        false: true,
+        value: true,
+        before: true
+      }
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      [
+        {
+          "type": "value",
+          "length": 64,
+          "value": "\n      This should be centered with a text before and after\n    "
+        }
+      ]
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      []
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      [
+        {
+          "type": "element",
+          "props": {
+            "type": "props",
+            "length": 50,
+            "props": {
+              "name": "centerOther",
+              "args": true,
+              "optional": true,
+              "false": true,
+              "value": true,
+              "before": true
+            }
+          },
+          "children": [
+            {
+              "type": "value",
+              "length": 64,
+              "value": "\n      This should be centered with a text before and after\n    "
+            }
+          ],
+          "length": 175,
+          "name": "reactex_environment",
+          "tag": "reactex_environment"
+        }
+      ]
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      [
+        {
+          "type": "value",
+          "length": 3,
+          "value": "\n  "
+        }
+      ]
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      []
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      [
+        {
+          "type": "element",
+          "props": {
+            "type": "props",
+            "length": 143,
+            "props": {
+              "1": true,
+              "name": "centerOther",
+              "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+              "end": "\\\\\\tmpArg\\end{center}",
+              "optionalArgs": true,
+              "other": true,
+              "endText": true,
+              "nbMandatoryArgs": true
+            }
+          },
+          "children": [
+            {
+              "type": "element",
+              "props": {
+                "type": "props",
+                "length": 50,
+                "props": {
+                  "name": "centerOther",
+                  "args": true,
+                  "optional": true,
+                  "false": true,
+                  "value": true,
+                  "before": true
+                }
+              },
+              "children": [
+                {
+                  "type": "value",
+                  "length": 64,
+                  "value": "\n      This should be centered with a text before and after\n    "
+                }
+              ],
+              "length": 175,
+              "name": "reactex_environment",
+              "tag": "reactex_environment"
+            },
+            {
+              "type": "value",
+              "length": 3,
+              "value": "\n  "
+            }
+          ],
+          "length": 364,
+          "name": "reactex_renew_environment",
+          "tag": "reactex_renew_environment"
+        }
+      ]
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      []
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      [
+        {
+          "type": "element",
+          "props": {
+            "type": "props",
+            "length": 137,
+            "props": {
+              "1": true,
+              "name": "centerOther",
+              "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+              "end": "\\\\\\tmpArg\\end{center}",
+              "optionalArgs": true,
+              "endText": true,
+              "nbMandatoryArgs": true
+            }
+          },
+          "children": [
+            {
+              "type": "element",
+              "props": {
+                "type": "props",
+                "length": 50,
+                "props": {
+                  "name": "centerOther",
+                  "args": true,
+                  "optional": true,
+                  "false": true,
+                  "value": true,
+                  "before": true
+                }
+              },
+              "children": [
+                {
+                  "type": "value",
+                  "length": 76,
+                  "value": "\n      This should be centered with a text before and default one after\n    "
+                }
+              ],
+              "length": 187,
+              "name": "reactex_environment",
+              "tag": "reactex_environment"
+            },
+            {
+              "type": "element",
+              "props": {
+                "type": "props",
+                "length": 143,
+                "props": {
+                  "1": true,
+                  "name": "centerOther",
+                  "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                  "end": "\\\\\\tmpArg\\end{center}",
+                  "optionalArgs": true,
+                  "other": true,
+                  "endText": true,
+                  "nbMandatoryArgs": true
+                }
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "props": {
+                    "type": "props",
+                    "length": 50,
+                    "props": {
+                      "name": "centerOther",
+                      "args": true,
+                      "optional": true,
+                      "false": true,
+                      "value": true,
+                      "before": true
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "value",
+                      "length": 64,
+                      "value": "\n      This should be centered with a text before and after\n    "
+                    }
+                  ],
+                  "length": 175,
+                  "name": "reactex_environment",
+                  "tag": "reactex_environment"
+                },
+                {
+                  "type": "value",
+                  "length": 3,
+                  "value": "\n  "
+                }
+              ],
+              "length": 364,
+              "name": "reactex_renew_environment",
+              "tag": "reactex_renew_environment"
+            }
+          ],
+          "length": 729,
+          "name": "reactex_new_environment",
+          "tag": "reactex_new_environment"
+        }
+      ]
+    console.log src/jsx/parser.ts:2093
+      concat
+    console.log src/jsx/parser.ts:2097
+      []
+    console.log src/jsx/index.ts:1976
+      NODE
+    console.log src/jsx/index.ts:1980
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 0,
+          "props": {}
+        },
+        "children": [
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 25,
+              "props": {
+                "name": "tmpArg",
+                "content": ""
+              }
+            },
+            "children": [],
+            "length": 53,
+            "name": "reactex_new_command",
+            "tag": "reactex_new_command"
+          },
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 137,
+              "props": {
+                "1": true,
+                "name": "centerOther",
+                "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                "end": "\\\\\\tmpArg\\end{center}",
+                "optionalArgs": true,
+                "endText": true,
+                "nbMandatoryArgs": true
+              }
+            },
+            "children": [
+              {
+                "type": "element",
+                "props": {
+                  "type": "props",
+                  "length": 50,
+                  "props": {
+                    "name": "centerOther",
+                    "args": true,
+                    "optional": true,
+                    "false": true,
+                    "value": true,
+                    "before": true
+                  }
+                },
+                "children": [
+                  {
+                    "type": "value",
+                    "length": 76,
+                    "value": "\n      This should be centered with a text before and default one after\n    "
+                  }
+                ],
+                "length": 187,
+                "name": "reactex_environment",
+                "tag": "reactex_environment"
+              },
+              {
+                "type": "element",
+                "props": {
+                  "type": "props",
+                  "length": 143,
+                  "props": {
+                    "1": true,
+                    "name": "centerOther",
+                    "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                    "end": "\\\\\\tmpArg\\end{center}",
+                    "optionalArgs": true,
+                    "other": true,
+                    "endText": true,
+                    "nbMandatoryArgs": true
+                  }
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "props": {
+                      "type": "props",
+                      "length": 50,
+                      "props": {
+                        "name": "centerOther",
+                        "args": true,
+                        "optional": true,
+                        "false": true,
+                        "value": true,
+                        "before": true
+                      }
+                    },
+                    "children": [
+                      {
+                        "type": "value",
+                        "length": 64,
+                        "value": "\n      This should be centered with a text before and after\n    "
+                      }
+                    ],
+                    "length": 175,
+                    "name": "reactex_environment",
+                    "tag": "reactex_environment"
+                  },
+                  {
+                    "type": "value",
+                    "length": 3,
+                    "value": "\n  "
+                  }
+                ],
+                "length": 364,
+                "name": "reactex_renew_environment",
+                "tag": "reactex_renew_environment"
+              }
+            ],
+            "length": 729,
+            "name": "reactex_new_environment",
+            "tag": "reactex_new_environment"
+          }
+        ],
+        "length": 822,
+        "name": "reactex_document",
+        "tag": "reactex_document"
+      }
+    console.log src/jsx/index.ts:2002
+      ELEMENT
+    console.log src/jsx/index.ts:2006
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 0,
+          "props": {}
+        },
+        "children": [
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 25,
+              "props": {
+                "name": "tmpArg",
+                "content": ""
+              }
+            },
+            "children": [],
+            "length": 53,
+            "name": "reactex_new_command",
+            "tag": "reactex_new_command"
+          },
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 137,
+              "props": {
+                "1": true,
+                "name": "centerOther",
+                "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                "end": "\\\\\\tmpArg\\end{center}",
+                "optionalArgs": true,
+                "endText": true,
+                "nbMandatoryArgs": true
+              }
+            },
+            "children": [
+              {
+                "type": "element",
+                "props": {
+                  "type": "props",
+                  "length": 50,
+                  "props": {
+                    "name": "centerOther",
+                    "args": true,
+                    "optional": true,
+                    "false": true,
+                    "value": true,
+                    "before": true
+                  }
+                },
+                "children": [
+                  {
+                    "type": "value",
+                    "length": 76,
+                    "value": "\n      This should be centered with a text before and default one after\n    "
+                  }
+                ],
+                "length": 187,
+                "name": "reactex_environment",
+                "tag": "reactex_environment"
+              },
+              {
+                "type": "element",
+                "props": {
+                  "type": "props",
+                  "length": 143,
+                  "props": {
+                    "1": true,
+                    "name": "centerOther",
+                    "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                    "end": "\\\\\\tmpArg\\end{center}",
+                    "optionalArgs": true,
+                    "other": true,
+                    "endText": true,
+                    "nbMandatoryArgs": true
+                  }
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "props": {
+                      "type": "props",
+                      "length": 50,
+                      "props": {
+                        "name": "centerOther",
+                        "args": true,
+                        "optional": true,
+                        "false": true,
+                        "value": true,
+                        "before": true
+                      }
+                    },
+                    "children": [
+                      {
+                        "type": "value",
+                        "length": 64,
+                        "value": "\n      This should be centered with a text before and after\n    "
+                      }
+                    ],
+                    "length": 175,
+                    "name": "reactex_environment",
+                    "tag": "reactex_environment"
+                  },
+                  {
+                    "type": "value",
+                    "length": 3,
+                    "value": "\n  "
+                  }
+                ],
+                "length": 364,
+                "name": "reactex_renew_environment",
+                "tag": "reactex_renew_environment"
+              }
+            ],
+            "length": 729,
+            "name": "reactex_new_environment",
+            "tag": "reactex_new_environment"
+          }
+        ],
+        "length": 822,
+        "name": "reactex_document",
+        "tag": "reactex_document"
+      }
+    console.log src/jsx/index.ts:1976
+      NODE
+    console.log src/jsx/index.ts:1980
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 25,
+          "props": {
+            "name": "tmpArg",
+            "content": ""
+          }
+        },
+        "children": [],
+        "length": 53,
+        "name": "reactex_new_command",
+        "tag": "reactex_new_command"
+      }
+    console.log src/jsx/index.ts:2002
+      ELEMENT
+    console.log src/jsx/index.ts:2006
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 25,
+          "props": {
+            "name": "tmpArg",
+            "content": ""
+          }
+        },
+        "children": [],
+        "length": 53,
+        "name": "reactex_new_command",
+        "tag": "reactex_new_command"
+      }
+    console.log src/jsx/index.ts:1976
+      NODE
+    console.log src/jsx/index.ts:1980
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 137,
+          "props": {
+            "1": true,
+            "name": "centerOther",
+            "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+            "end": "\\\\\\tmpArg\\end{center}",
+            "optionalArgs": true,
+            "endText": true,
+            "nbMandatoryArgs": true
+          }
+        },
+        "children": [
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 50,
+              "props": {
+                "name": "centerOther",
+                "args": true,
+                "optional": true,
+                "false": true,
+                "value": true,
+                "before": true
+              }
+            },
+            "children": [
+              {
+                "type": "value",
+                "length": 76,
+                "value": "\n      This should be centered with a text before and default one after\n    "
+              }
+            ],
+            "length": 187,
+            "name": "reactex_environment",
+            "tag": "reactex_environment"
+          },
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 143,
+              "props": {
+                "1": true,
+                "name": "centerOther",
+                "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                "end": "\\\\\\tmpArg\\end{center}",
+                "optionalArgs": true,
+                "other": true,
+                "endText": true,
+                "nbMandatoryArgs": true
+              }
+            },
+            "children": [
+              {
+                "type": "element",
+                "props": {
+                  "type": "props",
+                  "length": 50,
+                  "props": {
+                    "name": "centerOther",
+                    "args": true,
+                    "optional": true,
+                    "false": true,
+                    "value": true,
+                    "before": true
+                  }
+                },
+                "children": [
+                  {
+                    "type": "value",
+                    "length": 64,
+                    "value": "\n      This should be centered with a text before and after\n    "
+                  }
+                ],
+                "length": 175,
+                "name": "reactex_environment",
+                "tag": "reactex_environment"
+              },
+              {
+                "type": "value",
+                "length": 3,
+                "value": "\n  "
+              }
+            ],
+            "length": 364,
+            "name": "reactex_renew_environment",
+            "tag": "reactex_renew_environment"
+          }
+        ],
+        "length": 729,
+        "name": "reactex_new_environment",
+        "tag": "reactex_new_environment"
+      }
+    console.log src/jsx/index.ts:2002
+      ELEMENT
+    console.log src/jsx/index.ts:2006
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 137,
+          "props": {
+            "1": true,
+            "name": "centerOther",
+            "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+            "end": "\\\\\\tmpArg\\end{center}",
+            "optionalArgs": true,
+            "endText": true,
+            "nbMandatoryArgs": true
+          }
+        },
+        "children": [
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 50,
+              "props": {
+                "name": "centerOther",
+                "args": true,
+                "optional": true,
+                "false": true,
+                "value": true,
+                "before": true
+              }
+            },
+            "children": [
+              {
+                "type": "value",
+                "length": 76,
+                "value": "\n      This should be centered with a text before and default one after\n    "
+              }
+            ],
+            "length": 187,
+            "name": "reactex_environment",
+            "tag": "reactex_environment"
+          },
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 143,
+              "props": {
+                "1": true,
+                "name": "centerOther",
+                "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                "end": "\\\\\\tmpArg\\end{center}",
+                "optionalArgs": true,
+                "other": true,
+                "endText": true,
+                "nbMandatoryArgs": true
+              }
+            },
+            "children": [
+              {
+                "type": "element",
+                "props": {
+                  "type": "props",
+                  "length": 50,
+                  "props": {
+                    "name": "centerOther",
+                    "args": true,
+                    "optional": true,
+                    "false": true,
+                    "value": true,
+                    "before": true
+                  }
+                },
+                "children": [
+                  {
+                    "type": "value",
+                    "length": 64,
+                    "value": "\n      This should be centered with a text before and after\n    "
+                  }
+                ],
+                "length": 175,
+                "name": "reactex_environment",
+                "tag": "reactex_environment"
+              },
+              {
+                "type": "value",
+                "length": 3,
+                "value": "\n  "
+              }
+            ],
+            "length": 364,
+            "name": "reactex_renew_environment",
+            "tag": "reactex_renew_environment"
+          }
+        ],
+        "length": 729,
+        "name": "reactex_new_environment",
+        "tag": "reactex_new_environment"
+      }
+    console.log src/jsx/index.ts:1976
+      NODE
+    console.log src/jsx/index.ts:1980
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 50,
+          "props": {
+            "name": "centerOther",
+            "args": true,
+            "optional": true,
+            "false": true,
+            "value": true,
+            "before": true
+          }
+        },
+        "children": [
+          {
+            "type": "value",
+            "length": 76,
+            "value": "\n      This should be centered with a text before and default one after\n    "
+          }
+        ],
+        "length": 187,
+        "name": "reactex_environment",
+        "tag": "reactex_environment"
+      }
+    console.log src/jsx/index.ts:2002
+      ELEMENT
+    console.log src/jsx/index.ts:2006
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 50,
+          "props": {
+            "name": "centerOther",
+            "args": true,
+            "optional": true,
+            "false": true,
+            "value": true,
+            "before": true
+          }
+        },
+        "children": [
+          {
+            "type": "value",
+            "length": 76,
+            "value": "\n      This should be centered with a text before and default one after\n    "
+          }
+        ],
+        "length": 187,
+        "name": "reactex_environment",
+        "tag": "reactex_environment"
+      }
+    console.log src/jsx/index.ts:1976
+      NODE
+    console.log src/jsx/index.ts:1980
+      {
+        "type": "value",
+        "length": 76,
+        "value": "\n      This should be centered with a text before and default one after\n    "
+      }
+    console.log src/jsx/index.ts:1976
+      NODE
+    console.log src/jsx/index.ts:1980
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 143,
+          "props": {
+            "1": true,
+            "name": "centerOther",
+            "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+            "end": "\\\\\\tmpArg\\end{center}",
+            "optionalArgs": true,
+            "other": true,
+            "endText": true,
+            "nbMandatoryArgs": true
+          }
+        },
+        "children": [
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 50,
+              "props": {
+                "name": "centerOther",
+                "args": true,
+                "optional": true,
+                "false": true,
+                "value": true,
+                "before": true
+              }
+            },
+            "children": [
+              {
+                "type": "value",
+                "length": 64,
+                "value": "\n      This should be centered with a text before and after\n    "
+              }
+            ],
+            "length": 175,
+            "name": "reactex_environment",
+            "tag": "reactex_environment"
+          },
+          {
+            "type": "value",
+            "length": 3,
+            "value": "\n  "
+          }
+        ],
+        "length": 364,
+        "name": "reactex_renew_environment",
+        "tag": "reactex_renew_environment"
+      }
+    console.log src/jsx/index.ts:2002
+      ELEMENT
+    console.log src/jsx/index.ts:2006
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 143,
+          "props": {
+            "1": true,
+            "name": "centerOther",
+            "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+            "end": "\\\\\\tmpArg\\end{center}",
+            "optionalArgs": true,
+            "other": true,
+            "endText": true,
+            "nbMandatoryArgs": true
+          }
+        },
+        "children": [
+          {
+            "type": "element",
+            "props": {
+              "type": "props",
+              "length": 50,
+              "props": {
+                "name": "centerOther",
+                "args": true,
+                "optional": true,
+                "false": true,
+                "value": true,
+                "before": true
+              }
+            },
+            "children": [
+              {
+                "type": "value",
+                "length": 64,
+                "value": "\n      This should be centered with a text before and after\n    "
+              }
+            ],
+            "length": 175,
+            "name": "reactex_environment",
+            "tag": "reactex_environment"
+          },
+          {
+            "type": "value",
+            "length": 3,
+            "value": "\n  "
+          }
+        ],
+        "length": 364,
+        "name": "reactex_renew_environment",
+        "tag": "reactex_renew_environment"
+      }
+    console.log src/jsx/index.ts:1976
+      NODE
+    console.log src/jsx/index.ts:1980
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 50,
+          "props": {
+            "name": "centerOther",
+            "args": true,
+            "optional": true,
+            "false": true,
+            "value": true,
+            "before": true
+          }
+        },
+        "children": [
+          {
+            "type": "value",
+            "length": 64,
+            "value": "\n      This should be centered with a text before and after\n    "
+          }
+        ],
+        "length": 175,
+        "name": "reactex_environment",
+        "tag": "reactex_environment"
+      }
+    console.log src/jsx/index.ts:2002
+      ELEMENT
+    console.log src/jsx/index.ts:2006
+      {
+        "type": "element",
+        "props": {
+          "type": "props",
+          "length": 50,
+          "props": {
+            "name": "centerOther",
+            "args": true,
+            "optional": true,
+            "false": true,
+            "value": true,
+            "before": true
+          }
+        },
+        "children": [
+          {
+            "type": "value",
+            "length": 64,
+            "value": "\n      This should be centered with a text before and after\n    "
+          }
+        ],
+        "length": 175,
+        "name": "reactex_environment",
+        "tag": "reactex_environment"
+      }
+    console.log src/jsx/index.ts:1976
+      NODE
+    console.log src/jsx/index.ts:1980
+      {
+        "type": "value",
+        "length": 64,
+        "value": "\n      This should be centered with a text before and after\n    "
+      }
+    console.log src/jsx/index.ts:1976
+      NODE
+    console.log src/jsx/index.ts:1980
+      {
+        "type": "value",
+        "length": 3,
+        "value": "\n  "
+      }
+    console.error node_modules/react/cjs/react.development.js:167
+      Warning: Each child in a list should have a unique "key" prop.
+      
+      Check the top-level render call using <reactex_renew_environment>. See https://fb.me/react-warning-keys for more information.
+          in reactex_environment
+    console.error node_modules/react/cjs/react.development.js:167
+      Warning: Each child in a list should have a unique "key" prop.
+      
+      Check the top-level render call using <reactex_new_environment>. See https://fb.me/react-warning-keys for more information.
+          in reactex_environment
+    console.error node_modules/react/cjs/react.development.js:167
+      Warning: Each child in a list should have a unique "key" prop.
+      
+      Check the top-level render call using <reactex_document>. See https://fb.me/react-warning-keys for more information.
+          in reactex_new_command
+    console.log src/jsx/__tests__/index.spec.tsx:54
+      {
+        "type": "reactex_document",
+        "key": null,
+        "ref": null,
+        "props": {
+          "children": [
+            {
+              "type": "reactex_new_command",
+              "key": null,
+              "ref": null,
+              "props": {
+                "name": "tmpArg",
+                "content": ""
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            {
+              "type": "reactex_new_environment",
+              "key": null,
+              "ref": null,
+              "props": {
+                "1": true,
+                "name": "centerOther",
+                "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                "end": "\\\\\\tmpArg\\end{center}",
+                "optionalArgs": true,
+                "endText": true,
+                "nbMandatoryArgs": true,
+                "children": [
+                  {
+                    "type": "reactex_environment",
+                    "key": null,
+                    "ref": null,
+                    "props": {
+                      "name": "centerOther",
+                      "args": true,
+                      "optional": true,
+                      "false": true,
+                      "value": true,
+                      "before": true,
+                      "children": "\n      This should be centered with a text before and default one after\n    "
+                    },
+                    "_owner": null,
+                    "_store": {}
+                  },
+                  {
+                    "type": "reactex_renew_environment",
+                    "key": null,
+                    "ref": null,
+                    "props": {
+                      "1": true,
+                      "name": "centerOther",
+                      "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                      "end": "\\\\\\tmpArg\\end{center}",
+                      "optionalArgs": true,
+                      "other": true,
+                      "endText": true,
+                      "nbMandatoryArgs": true,
+                      "children": [
+                        {
+                          "type": "reactex_environment",
+                          "key": null,
+                          "ref": null,
+                          "props": {
+                            "name": "centerOther",
+                            "args": true,
+                            "optional": true,
+                            "false": true,
+                            "value": true,
+                            "before": true,
+                            "children": "\n      This should be centered with a text before and after\n    "
+                          },
+                          "_owner": null,
+                          "_store": {}
+                        },
+                        "\n  "
+                      ]
+                    },
+                    "_owner": null,
+                    "_store": {}
+                  }
+                ]
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          ]
+        },
+        "_owner": null,
+        "_store": {}
+      }
+    console.log src/jsx/__tests__/index.spec.tsx:55
+      {
+        "type": "reactex_document",
+        "key": null,
+        "ref": null,
+        "props": {
+          "children": [
+            {
+              "type": "reactex_new_command",
+              "key": null,
+              "ref": null,
+              "props": {
+                "name": "tmpArg",
+                "content": ""
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            {
+              "type": "reactex_new_environment",
+              "key": null,
+              "ref": null,
+              "props": {
+                "name": "centerOther",
+                "optionalArgs": [
+                  "endText"
+                ],
+                "nbMandatoryArgs": 1,
+                "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                "end": "\\\\\\tmpArg\\end{center}"
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            {
+              "type": "reactex_environment",
+              "key": null,
+              "ref": null,
+              "props": {
+                "name": "centerOther",
+                "args": [
+                  {
+                    "optional": false,
+                    "value": "before"
+                  }
+                ],
+                "children": "This should be centered with a text before and default one after"
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            {
+              "type": "reactex_renew_environment",
+              "key": null,
+              "ref": null,
+              "props": {
+                "name": "centerOther",
+                "optionalArgs": [
+                  "other endText"
+                ],
+                "nbMandatoryArgs": 1,
+                "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+                "end": "\\\\\\tmpArg\\end{center}"
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            {
+              "type": "reactex_environment",
+              "key": null,
+              "ref": null,
+              "props": {
+                "name": "centerOther",
+                "args": [
+                  {
+                    "optional": false,
+                    "value": "before"
+                  }
+                ],
+                "children": "This should be centered with a text before and after"
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          ]
+        },
+        "_owner": null,
+        "_store": {}
+      }
+
+  ● Even more complex JSX test
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected
+    + Received
+
+    @@ -18,67 +18,71 @@
+            {
+              "type": "reactex_new_environment",
+              "key": null,
+              "ref": null,
+              "props": {
+    -           "name": "centerOther",
+    -           "optionalArgs": [
+    -             "endText"
+    -           ],
+    -           "nbMandatoryArgs": 1,
+    +           "1": true,
+    +           "name": "centerOther",
+                "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+    -           "end": "\\\\\\tmpArg\\end{center}"
+    +           "end": "\\\\\\tmpArg\\end{center}",
+    -         },
+    -         "_owner": null,
+    -         "_store": {}
+    +           "optionalArgs": true,
+    +           "endText": true,
+    +           "nbMandatoryArgs": true,
+    +           "children": [
+    -       },
+    -       {
+    +             {
+    -         "type": "reactex_environment",
+    +               "type": "reactex_environment",
+    -         "key": null,
+    +               "key": null,
+    -         "ref": null,
+    +               "ref": null,
+    -         "props": {
+    +               "props": {
+    -           "name": "centerOther",
+    +                 "name": "centerOther",
+    -           "args": [
+    -             {
+    -               "optional": false,
+    +                 "args": true,
+    +                 "optional": true,
+    +                 "false": true,
+    -               "value": "before"
+    +                 "value": true,
+    -             }
+    -           ],
+    -           "children": "This should be centered with a text before and default one after"
+    -         },
+    +                 "before": true,
+    +                 "children": "\n      This should be centered with a text before and default one after\n    "
+    +               },
+    -         "_owner": null,
+    +               "_owner": null,
+    -         "_store": {}
+    +               "_store": {}
+    -       },
+    -       {
+    +             },
+    +             {
+    -         "type": "reactex_renew_environment",
+    +               "type": "reactex_renew_environment",
+    -         "key": null,
+    +               "key": null,
+    -         "ref": null,
+    +               "ref": null,
+    -         "props": {
+    +               "props": {
+    -           "name": "centerOther",
+    +                 "1": true,
+    -           "optionalArgs": [
+    -             "other endText"
+    -           ],
+    -           "nbMandatoryArgs": 1,
+    -           "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+    +                 "name": "centerOther",
+    +                 "start": "\\renewcommand{\\tmpArg}{#1}\\begin{center}#2\\\\",
+    -           "end": "\\\\\\tmpArg\\end{center}"
+    -         },
+    -         "_owner": null,
+    -         "_store": {}
+    -       },
+    -       {
+    -         "type": "reactex_environment",
+    +                 "end": "\\\\\\tmpArg\\end{center}",
+    +                 "optionalArgs": true,
+    +                 "other": true,
+    +                 "endText": true,
+    +                 "nbMandatoryArgs": true,
+    +                 "children": [
+    +                   {
+    +                     "type": "reactex_environment",
+    -         "key": null,
+    +                     "key": null,
+    -         "ref": null,
+    +                     "ref": null,
+    -         "props": {
+    +                     "props": {
+    -           "name": "centerOther",
+    +                       "name": "centerOther",
+    -           "args": [
+    -             {
+    -               "optional": false,
+    -               "value": "before"
+    +                       "args": true,
+    +                       "optional": true,
+    +                       "false": true,
+    +                       "value": true,
+    -             }
+    -           ],
+    -           "children": "This should be centered with a text before and after"
+    +                       "before": true,
+    +                       "children": "\n      This should be centered with a text before and after\n    "
+    +                     },
+    +                     "_owner": null,
+    +                     "_store": {}
+    +                   },
+    +                   "\n  "
+    +                 ]
+    +               },
+    +               "_owner": null,
+    +               "_store": {}
+    +             }
+    +           ]
+              },
+              "_owner": null,
+              "_store": {}
+            }
+          ]
+
+      54 |     console.log(o1)
+      55 |     console.log(o2)
+    > 56 |   expect(o1).toEqual(o2)
+         |              ^
+      57 | })
+      58 | /*
+      59 | test('Even more complex JSX test 2', () => {
+
+      at Object.<anonymous> (src/jsx/__tests__/index.spec.tsx:56:14)
+
+ › 1 snapshot obsolete.
+   • Parser 1
+----------------------------|----------|----------|----------|----------|-------------------|
+File                        |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------------------------|----------|----------|----------|----------|-------------------|
+All files                   |    81.79 |    57.25 |    76.62 |    81.34 |                   |
+ src                        |    70.79 |    34.38 |    57.58 |    70.73 |                   |
+  constants.ts              |      100 |      100 |      100 |      100 |                   |
+  index.ts                  |      100 |       50 |      100 |      100 |                13 |
+  renderer.ts               |    50.94 |    33.33 |    48.15 |       52 |... 25,229,233,237 |
+ src/jsx                    |    81.62 |    68.18 |    84.62 |    80.95 |                   |
+  index.ts                  |    65.12 |       70 |    66.67 |     64.1 |... 15,18,20,29,56 |
+  parser.ts                 |    89.25 |    67.65 |      100 |    88.51 |... 64,166,167,170 |
+ src/latex                  |       90 |    66.67 |    83.33 |    89.47 |                   |
+  LatexDocument.ts          |       90 |    66.67 |    83.33 |    89.47 |             13,23 |
+ src/node                   |      100 |      100 |      100 |      100 |                   |
+  isType.ts                 |      100 |      100 |      100 |      100 |                   |
+ src/render                 |      100 |    94.44 |      100 |      100 |                   |
+  index.ts                  |      100 |      100 |      100 |      100 |                   |
+  renderChildren.ts         |      100 |       75 |      100 |      100 |                15 |
+  renderCommand.ts          |      100 |      100 |      100 |      100 |                   |
+  renderDocument.ts         |      100 |      100 |      100 |      100 |                   |
+  renderEnvironment.ts      |      100 |      100 |      100 |      100 |                   |
+  renderMath.ts             |      100 |       75 |      100 |      100 |                10 |
+  renderNewCommand.ts       |      100 |      100 |      100 |      100 |                   |
+  renderNewEnvironment.ts   |      100 |      100 |      100 |      100 |                   |
+  renderNode.ts             |      100 |      100 |      100 |      100 |                   |
+  renderRenewCommand.ts     |      100 |      100 |      100 |      100 |                   |
+  renderRenewEnvironment.ts |      100 |      100 |      100 |      100 |                   |
+  renderTextInstance.ts     |      100 |      100 |      100 |      100 |                   |
+ src/utils                  |       10 |        0 |        0 |    10.53 |                   |
+  propsEqual.ts             |       10 |        0 |        0 |    10.53 |... 36,39,42,46,50 |
+----------------------------|----------|----------|----------|----------|-------------------|
+Snapshot Summary
+ › 1 snapshot obsolete from 1 test suite. To remove it, run `yarn test -u`.
+   ↳ src/jsx/__tests__/index.spec.tsx
+       • Parser 1
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 14 passed, 15 total
+Snapshots:   1 obsolete, 14 passed, 14 total
+Time:        2.695s, estimated 3s
+Ran all test suites.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

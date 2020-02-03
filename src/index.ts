@@ -42,13 +42,13 @@ const latex = ({ initialValue, onChange }: { initialValue: React.ReactNode, onCh
   };
 };
 
-const renderToString = function(element: React.ReactNode) {
+const renderToLaTeXString = function(element: React.ReactNode) {
   const instance = latex({ initialValue: element });
   return instance.toString();
 };
 
 export {
-  renderToString,
+  renderToLaTeXString,
   jsxtex,
   reactex
 };
