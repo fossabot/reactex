@@ -59,6 +59,7 @@ export interface TextInstance {
 
 export interface TexAttributes {
   children?: React.ReactNode
+  key?: React.Key
 }
 
 /*interface AllTexAttributes extends TexAttributes {
