@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`New Environment + renew Environment 1`] = `
+"\\\\begin{document}
+\\\\newcommand{\\\\tmpArg}[0]{}
+\\\\newenvironment{centerOther}[2][endText]
+{\\\\renewcommand{\\\\tmpArg}{#1}\\\\begin{center}#2\\\\\\\\}
+{\\\\\\\\\\\\tmpArg\\\\end{center}}
+\\\\begin{centerOther}{before}
+This should be centered with a text before and default one after
+\\\\end{centerOther}
+\\\\renewenvironment{centerOther}[2][other endText]
+{\\\\renewcommand{\\\\tmpArg}{#1}\\\\begin{center}#2\\\\\\\\}
+{\\\\\\\\\\\\tmpArg\\\\end{center}}
+\\\\begin{centerOther}{before}
+This should be centered with a text before and after
+\\\\end{centerOther}
+\\\\end{document}"
+`;
